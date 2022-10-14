@@ -19,3 +19,11 @@ def mock_quiz_sim(a):
             randque)  # if the question is picked in randque this statement removes that from the list of dictionary to avoid repeating it
 
     return print(f"Score: {score}/{total_items}!")
+
+#ex input
+#you can have as many inputs as you want
+questions = {"What is the meaning of PC: ": "personal computer,
+           "1+1: ": "2",
+           "2+2": "4"} #keep the value lower case
+mock_quiz_sim(questions)
+
