@@ -39,30 +39,10 @@ public class TestSim {
         System.out.println(score + "/" + total_score);
     }
     public static void main(String[]args){
+        //sample input
         HashMap<String, String> que_n_ans = new HashMap<>();
-
-        que_n_ans.put("What are the four gathering techniques: ","survey interview observation documentation and records");
-        que_n_ans.put("Is defined as the act of examining a process or questioning a selected sample of individuals to obtain data about a service,product, or process: ","survey");
-        que_n_ans.put("Are used to collect data from a small group of subjects on a broad range of topics: ","interview");
-        que_n_ans.put("Are comparable to a questionnaire, with the same questions in the same orderfor each subject and with multiple choice answers: ","structured interview");
-        que_n_ans.put("Is a way of gathering data by watching behaviour, events, or noting physicalcharacteristics in their natural setting.","observation");
-        que_n_ans.put("Based research uses existing data for a study","documentation and record");
-        que_n_ans.put("It's the internal language that someone can use to make the RDBMS performvarious operations on its data: ","structured query language");
-        que_n_ans.put("Relation name and attribute list (Beers(Name, Manf).","relation schema");
-        que_n_ans.put("Collection of relation: ","database");
-        que_n_ans.put("set of all relation schema in the database: ","database schema");
-        que_n_ans.put("Which deals with database schemas and descriptions of how the datashould reside in the database: ","data definition language");
-        que_n_ans.put("which deals with data manipulation and it is used to store, modify, retrieve,delete and update data in a database: ","data manipulation language");
-        que_n_ans.put("Command used for viewing the list of databases: ","show databases;");
-        que_n_ans.put("Command used to select which database to be used for other queries: ","use db_name");
-        que_n_ans.put("Command used to create the database: ","create databases;");
-        que_n_ans.put("Command used to show tables on the selected database: ","show tables;");
-        que_n_ans.put("Ensures that the field cannot have a null value: ","not null");
-        que_n_ans.put("Ensures that all values in a column are different: ","unique");
-        que_n_ans.put("Uniquely identifies each record in a table: ","primary key");
-        que_n_ans.put("Is a key used to link two tables together: ","foreign key");
-        que_n_ans.put("Ensures that all values in a field satisfies a specific condition: ","check");
-        que_n_ans.put("Is used to provide a default value for a column: ","default");
+        que_n_ans.put("what is the meaning of pc: ", "personal computer");
+        que_n_ans.put("1+1", "2");
 
         mock_test(que_n_ans);
 
