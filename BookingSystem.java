@@ -39,13 +39,12 @@ class Booking extends Airplane{
             }
         }
     }
-    public int Seat_total(){
-        int total = 0;
+    public int Available_Seats(){
+        int total_seats = 0;
         for(String items : planes.keySet()){
-            total+= planes.get(items);
-
+            total_seats+= planes.get(items);
         }
-        return total;
+        return total_seats;
     }
 }
 public class BookingSystem {
@@ -57,8 +56,8 @@ public class BookingSystem {
         System.out.println("Welcome to CVSU Flight Booking");
         System.out.println("\nHere are the list of Available Airlines today");
         book.PlaneList();
-        int total_books = book.Seat_total();
-        while (total_books!=0){
+        int availableSeats = book.Available_Seats();
+        while (availableSeats!=0){
             System.out.println("""
      
                     Type (book) to book flight
@@ -78,7 +77,7 @@ public class BookingSystem {
             else if (flight.equals("flights")) {
                 book.PlaneList();
             }
-            total_books = book.Seat_total();
+            availableSeats = book.Available_Seats();
             bookingHash.clear();
 
         }
