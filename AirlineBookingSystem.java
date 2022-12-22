@@ -47,7 +47,7 @@ class Booking extends Airplane{
         return total_seats;
     }
 }
-public class BookingSystem {
+public class AirlineBookingSystem {
     public static void main(String[] args) {
         Booking book = new Booking();
         Scanner sc = new Scanner(System.in);
