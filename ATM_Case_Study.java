@@ -41,12 +41,12 @@ class Screen extends key_pad{
 class Atm extends Bank_database{
     public Boolean Security(String [] args){
         HashMap<String, String> acc_n_pins = new HashMap<>();
-        acc_n_pins.put(account_number[0],account_pin[0]);
-        acc_n_pins.put(account_number[1],account_pin[1]);
-        acc_n_pins.put(account_number[2],account_pin[2]);
         boolean chk_acc = false;
-        String tmp_acc_num  = args[0];
-        String tmp_acc_pn = args[1];
+        String tmp_acc_num = args[0];
+        String tmp_acc_pn  = args[1];
+        for (int i = 0; i< account_number.length; i++){
+            acc_n_pins.put(account_number[i],account_pin[i]);
+        }
         for (String accounts : account_number){
             if (tmp_acc_num.equals(accounts)) {
                 String acc_pn_val = acc_n_pins.get(accounts);
