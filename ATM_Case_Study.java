@@ -11,13 +11,13 @@ class Bank_database {
 }
 
 abstract class key_pad{
-    abstract public void wc();
+    abstract public void displayWelcome();
     abstract public String main_menu();
     Scanner sc = new Scanner(System.in);
 }
 
 class Screen extends key_pad{
-    public void wc(){
+    public void displayWelcome(){
         System.out.println("Welcome!");
     }
     public String[] Acc_details(){
@@ -47,13 +47,13 @@ class Atm extends Bank_database{
         for (int i = 0; i< account_number.length; i++){
             acc_n_pins.put(account_number[i],account_pin[i]);
         }
-        for (String accounts : account_number){
+        for (String accounts : acc_n_pins.keySet()){
             if (tmp_acc_num.equals(accounts)) {
                 String acc_pn_val = acc_n_pins.get(accounts);
                 if(acc_pn_val.equals(tmp_acc_pn)){
                     chk_acc = true;
                     break;
-                }
+                }break;
             }
         }
         if (!chk_acc){
@@ -150,7 +150,7 @@ public class ATM_Case_Study {
         Atm atm = new Atm();
         Screen sc = new Screen();
 
-        sc.wc();
+        sc.displayWelcome();
         boolean quit = false;
         int attempt = 5;
        while (attempt>0) {
