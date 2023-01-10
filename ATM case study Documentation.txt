@@ -1,0 +1,35 @@
+ATM Case Study
+The ATM Case Study project is a simulation of an automated teller machine (ATM) that allows users to perform various banking operations,
+such as viewing their balance, withdrawing cash, and depositing funds.
+
+Classes
+BankDatabase
+The BankDatabase class stores information about all accounts in the bank, including the account number, PIN, and balance. This information
+is stored in a HashMap where the account number is the key and the Account object is the value.
+
+Account
+The Account class stores information about a single bank account, including the account number, PIN, and balance. It has getter and setter
+methods for accessing and updating this information.
+
+Keypad
+The Keypad class is an abstract class that provides a template for a keypad with abstract methods for displaying the welcome message and main menu.
+
+Screen
+The Screen class extends the Keypad class and implements the abstract methods for displaying the welcome message and main menu. It also has
+a method for prompting the user to enter their account number and PIN.
+
+Atm
+The Atm class handles security and transactions for the ATM. It has a method for checking if the account number and PIN entered by the
+user are valid, and a method for performing transactions based on the user's selection from the main menu.
+
+Transaction
+The Transaction class has a method for performing a transaction based on the user's selection from the main menu. It simulates processing 
+time by sleeping the thread for 5 seconds.
+
+CashDispenser
+The CashDispenser class has a method for simulating the withdrawal of cash from the ATM.
+
+Running the Program
+To run the program, simply run the AtmCaseStudy class. The program will continuously prompt the user to enter their account number and
+PIN, and perform the selected transaction if the account number and PIN are valid. The program will exit if the user selects the "Exit"
+option from the main menu.
