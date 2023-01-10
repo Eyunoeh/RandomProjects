@@ -1,5 +1,14 @@
+package ATM_Case_Study;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
+class Bank_database {
+    public   String [] account_number = {"12345","56789","01478"};
+    public  String [] account_pin = {"54321","98765","02588"};
+    public Integer [] balance = {1000, 5000,3000};
+
+}
 
 abstract class key_pad{
     abstract public void wc();
@@ -28,30 +37,29 @@ class Screen extends key_pad{
         return sc.nextLine();
     }
 }
-class Bank_database {
-    public   String [] account_number = {"12345","56789","01478"};
-    public  String [] account_pin = {"54321","98765","02588"};
-    public Integer [] balance = {1000, 5000,3000};
-}
+
 class Atm extends Bank_database{
     public Boolean Security(String [] args){
+        HashMap<String, String> acc_n_pins = new HashMap<>();
+        acc_n_pins.put(account_number[0],account_pin[0]);
+        acc_n_pins.put(account_number[1],account_pin[1]);
+        acc_n_pins.put(account_number[2],account_pin[2]);
         boolean chk_acc = false;
-        boolean chk_pn = false;
         String tmp_acc_pn  = args[0];
         String tmp_acc_num = args[1];
         for (String accounts : account_number){
             if (tmp_acc_pn.equals(accounts)) {
-                chk_acc = true;
-                break;
+                String acc_pn_val = acc_n_pins.get(accounts);
+                if(acc_pn_val.equals(args[1])){
+                    chk_acc = true;
+                    break;
+                }
             }
         }
-        for (String pins : account_pin){
-            if (tmp_acc_num.equals(pins)){
-                chk_pn = true;
-                break;
-            }
+        if (!chk_acc){
+            System.out.println("Invalid inputs!\n");
         }
-        return chk_pn && chk_acc;
+        return chk_acc;
     }
 }
 class Account extends Bank_database{
@@ -98,26 +106,35 @@ class Transaction {
     }
  }
 class Cash_Dispenser {
-    public int Withdrawal(int args){
+    public int Withdrawal(int args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the withdraw amount in CENTS(or 0 to cancel ): ");
         int wd = sc.nextInt();
-        int bal = args - wd;
+        int bal_check = args - wd;
         if (wd >= 0) {
-            if (bal < 0) {
+            if (bal_check < 0) {
                 System.out.println("Not enough Credits");
                 return args;
             }
+        } else {
+            System.out.println("Positive Inputs Only!");
+            return args;
         }
-        return bal;
+        return args - wd;
     }
+
 }
 class Deposit_Slot {
     public int Deposit(int args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter the deposit amount in CENTS(or 0 to cancel ): ");
         int dp = sc.nextInt();
-        return args + dp;
+        if (dp >= 0) {
+            return args + dp;
+        }else {
+            System.out.println("Positive Integer Only!");
+        }
+        return args;
     }
 }
 
