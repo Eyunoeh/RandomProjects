@@ -45,12 +45,12 @@ class Atm extends Bank_database{
         acc_n_pins.put(account_number[1],account_pin[1]);
         acc_n_pins.put(account_number[2],account_pin[2]);
         boolean chk_acc = false;
-        String tmp_acc_pn  = args[0];
-        String tmp_acc_num = args[1];
+        String tmp_acc_num  = args[0];
+        String tmp_acc_pn = args[1];
         for (String accounts : account_number){
-            if (tmp_acc_pn.equals(accounts)) {
+            if (tmp_acc_num.equals(accounts)) {
                 String acc_pn_val = acc_n_pins.get(accounts);
-                if(acc_pn_val.equals(args[1])){
+                if(acc_pn_val.equals(tmp_acc_pn)){
                     chk_acc = true;
                     break;
                 }
